@@ -1,6 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
 
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
@@ -9,5 +8,27 @@ export default defineNuxtConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+
+  modules: ["@nuxtjs/i18n"],
+
+  i18n: {
+    defaultLocale: "nl",
+
+    locales: [
+      {
+        code: "nl",
+        name: "Nederlands",
+        file: "nl.json",
+      },
+      {
+        code: "en",
+        name: "English",
+        file: "en.json",
+      },
+    ],
+
+    langDir: "locales",
+    strategy: "prefix_except_default",
   },
 });
